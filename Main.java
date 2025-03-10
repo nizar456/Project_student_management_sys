@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Locale;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -23,7 +24,7 @@ public class Main {
 					searchStudents(input);
 				break;
 				case "sort":
-					
+                    sortStudents(input);
 				break;
 				case "view":
 					
@@ -81,6 +82,16 @@ public class Main {
 			if(student.getName().equals(name)) {
 				System.out.println(student);
 			}
+		}
+	}
+    private static void sortStudents(Scanner input) {
+		System.out.println("Enter a field to sort by (name, ID, email, or GPA): ");
+		String field = input.nextLine();
+		
+		Collections.sort(students, new StudentComparator(field));
+		
+		for (Student student: students) {
+			System.out.println(student);
 		}
 	}
     
