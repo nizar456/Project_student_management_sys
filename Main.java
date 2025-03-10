@@ -27,7 +27,7 @@ public class Main {
                     sortStudents(input);
 				break;
 				case "view":
-					
+                    viewStudents();
 				break;
 				case "exit":
 					shouldRun = false;
@@ -90,6 +90,11 @@ public class Main {
 		
 		Collections.sort(students, new StudentComparator(field));
 		
+		for (Student student: students) {
+			System.out.println(student);
+		}
+	}
+    private static void viewStudents() {
 		for (Student student: students) {
 			System.out.println(student);
 		}
