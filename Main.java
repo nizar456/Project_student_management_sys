@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 public class Main {
     private static ArrayList<Student> students = new ArrayList<>();
-    
+
     public static void main(String[] args){
         Scanner input = new Scanner(System.in).useLocale(Locale.US);
 		boolean shouldRun = true;
@@ -20,7 +20,7 @@ public class Main {
 					addStudent(input);
 				break;
 				case "search":
-					
+					searchStudents(input);
 				break;
 				case "sort":
 					
@@ -72,6 +72,16 @@ public class Main {
 	    Pattern pattern = Pattern.compile(regex);
 	    Matcher matcher = pattern.matcher(email);
 	    return matcher.find();
+	}
+    private static void searchStudents(Scanner input) {
+		System.out.println("Enter the student name: ");
+		String name = input.nextLine();
+		
+		for (Student student: students) {
+			if(student.getName().equals(name)) {
+				System.out.println(student);
+			}
+		}
 	}
     
 }
